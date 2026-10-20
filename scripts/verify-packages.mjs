@@ -39,11 +39,12 @@ for (const [label, relative, cpu] of candidates) {
   assert.ok(fs.existsSync(archive), `${label}: app.asar missing`);
   assert.ok(!fs.existsSync(path.join(resources, 'launchfx-qa.json')), `${label}: QA marker must never ship`);
   for (const source of sourceFiles(path.join(root, 'src'))) {
-    const name = path.relative(root, source).split(path.sep).join('/');
+    // @electron/asar traverses entries with the host's path.sep, including on Windows.
+    const name = path.relative(root, source);
     assert.deepEqual(asar.extractFile(archive, name), fs.readFileSync(source), `${label}: stale ${name}`);
   }
   for (const asset of ['icon.png', 'icon.icns', 'tray.png']) {
-    assert.deepEqual(asar.extractFile(archive, `assets/${asset}`), fs.readFileSync(path.join(root, 'assets', asset)));
+    assert.deepEqual(asar.extractFile(archive, path.join('assets', asset)), fs.readFileSync(path.join(root, 'assets', asset)));
   }
   assert.deepEqual(fs.readFileSync(path.join(resources, 'icon.ico')), fs.readFileSync(path.join(root, 'assets/icon.ico')));
   assert.deepEqual(
