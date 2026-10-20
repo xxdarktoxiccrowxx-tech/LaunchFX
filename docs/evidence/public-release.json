@@ -1,0 +1,43 @@
+{
+  "release": "https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/releases/tag/v1.1.0",
+  "workflow": "https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/actions/runs/39487259442",
+  "checksums": "6/6 match GitHub asset digests",
+  "downloads": [
+    {
+      "name": "LaunchFX-1.1.0-mac-arm64.dmg",
+      "status": "public download accessible",
+      "sha256": "matches release digest and checksum file",
+      "size": 135255704
+    },
+    {
+      "name": "LaunchFX-1.1.0-mac-arm64.zip",
+      "status": "public download accessible",
+      "sha256": "matches release digest and checksum file",
+      "size": 133716894
+    },
+    {
+      "name": "LaunchFX-1.1.0-mac-x64.dmg",
+      "status": "public download accessible",
+      "sha256": "matches release digest and checksum file",
+      "size": 140773304
+    },
+    {
+      "name": "LaunchFX-1.1.0-mac-x64.zip",
+      "status": "public download accessible",
+      "sha256": "matches release digest and checksum file",
+      "size": 139310768
+    },
+    {
+      "name": "LaunchFX-1.1.0-win-x64.exe",
+      "status": "public download accessible",
+      "sha256": "matches release digest and checksum file",
+      "size": 114384222
+    },
+    {
+      "name": "LaunchFX-1.1.0-win-x64.zip",
+      "status": "public download accessible",
+      "sha256": "matches release digest and checksum file",
+      "size": 157609304
+    }
+  ]
+}

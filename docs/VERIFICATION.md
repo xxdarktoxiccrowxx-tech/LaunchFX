@@ -32,4 +32,13 @@ QA mode deliberately prevents real target launches and system permission changes
 
 Render reports are in [WebGL evidence](evidence/visual-webgl.json) and [Canvas 2D evidence](evidence/visual-canvas2d.json). Desktop screenshots are in `docs/images/`. The public [GitHub Actions runs](https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/actions) provide separate build evidence; a successful installer build is not a target-app interaction test.
 
-Before a public release, run the produced app on both operating systems with the installed target apps. Check cold and already-running launches, animation off/fullscreen on and animation on/fullscreen off, skip/cancel, Store installations, two displays, reduced motion, denied/granted permissions, shortcuts while the studio is in the tray, and login startup. Sign and notarize the release with the maintainer's credentials.
+## Public preview build
+
+The [v1.1.0 release workflow](https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/actions/runs/39487259442) builds commit `a1d158bb3cf44602162fa263a8e43bf529fcf1b9` on native macOS and Windows runners. Both platform build jobs passed on 2026-10-20:
+
+- Each platform passed 27 tests, with one test for the other operating system skipped. Windows executed the real PowerShell parser and compiled the Win32 declarations, then checked unified-client metadata using synthetic fixtures. It did not open ChatGPT or Codex.
+- Windows PowerShell 5.1 compatibility parsing passed separately.
+- Both macOS architectures and Windows x64 passed package-source, icon, native-helper and production-mode checks. The Windows verifier now uses native path separators for the archive API; its initial CI failure was in the verifier, not a missing packaged source file.
+- The release contains Mac arm64/x64 DMG and ZIP packages, Windows x64 NSIS and ZIP packages, and SHA-256 checksums. All six public download endpoints responded successfully; the checksum file matches the six GitHub asset SHA-256 digests. See [public download evidence](evidence/public-release.json). These are CI builds; local rebuilds can differ in bytes. Match downloads against the release's own checksum file.
+
+Before promoting this public preview to a stable release, run the produced app on both operating systems with the installed target apps. Check cold and already-running launches, animation off/fullscreen on and animation on/fullscreen off, skip/cancel, Store installations, two displays, reduced motion, denied/granted permissions, shortcuts while the studio is in the tray, and login startup. Sign and notarize the release with the maintainer's credentials.
