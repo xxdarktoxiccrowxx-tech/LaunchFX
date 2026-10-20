@@ -1,8 +1,42 @@
 # Verification status
 
-Version 1.1.0 local verification performed on 2026-10-20, on an Apple Silicon Mac running macOS 27.2. Historical 1.0 checks are identified explicitly. These results separate source tests, real rendering, packaged UI operation and native integration coverage.
+## Version 1.1.1 — duration and handoff fixes
 
-## Passed
+Local source and browser checks were performed on 2026-10-20 on an Apple Silicon Mac. The production source is commit `029a750e3ab5e77269510d6143bce1dcc5601f51`. These results separate renderer timing, controller behavior, packaged UI operation and actual native integration.
+
+- **44 of 45 Node tests passed locally; one Windows-only test was skipped on macOS.** Coverage includes full and reduced-motion duration, clock stalls, readiness and handoff lifecycle, background-rendering suspension, saving before launch, and recovery from a failed settings write. Mocked lifecycle/controller tests do not open native target applications.
+- The browser fixture runs the actual overlay markup, module and WebGL renderer in Chrome, with IPC mocked. It reproduces the old reduced-motion defect: both 4-second and 10-second requests finish in roughly 0.7 seconds, with sampled black frames.
+- With the fix, reduced motion retains the selected duration and displays a static scene with gentle fades. Full-motion previews also retain their selected duration. No corrected run completed at the one-second checkpoint, and no renderer errors were reported.
+
+| Scene and mode | Requested | Before fix | After fix |
+| --- | ---: | ---: | ---: |
+| Singularity, reduced-motion preview | 4 s | 0.728 s | 4.004 s |
+| Singularity, reduced-motion preview | 10 s | 0.697 s | 10.010 s |
+| Singularity, full-motion preview | 4 s | Not measured | 4.017 s |
+| Singularity, full-motion preview | 10 s | Not measured | 10.014 s |
+| Aurora, full-motion mock launch | 4 s | Not measured | 4.156 s |
+| Warp, full-motion mock launch | 10 s | Not measured | 10.002 s |
+
+See [sanitized browser timing evidence](evidence/overlay-timing-1.1.1.json). These are renderer measurements, not real target-app handoff tests. Some full-motion runs included frame gaps of 100–399.9 ms, so this evidence does not establish uninterrupted rendering or a universal 60 FPS guarantee. An earlier 4-second run with frequent synchronous GPU readback measured 4.260 seconds; the final fixture samples only four pixel milestones and does not read the final frame before completion.
+
+Packaged Apple Silicon Mac QA used an isolated copy with the same production source and temporary settings. Native overlay start/completion logs measured:
+
+| Mode | Requested | Native elapsed |
+| --- | ---: | ---: |
+| Full motion (system preference) | 4 s | 4.080 s |
+| Full motion (system preference) | 10 s | 10.015 s |
+| Reduced motion (Always) | 4 s | 4.017 s |
+| Reduced motion (Always) | 10 s | 10.016 s |
+
+All four previews completed and returned to the studio; the 10-second full-motion preview remained visible and advanced beyond one second. See [native timing evidence](evidence/native-timing-1.1.1.json). No target app was opened and no permissions were changed. The production app installed in Applications opens as version 1.1.1 with the original user settings preserved byte-for-byte. The Mac app passes strict deep signature verification, and both Mac architectures plus the local Windows build passed package/source checks.
+
+The [v1.1.1 release workflow](https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/actions/runs/39506915951) completed successfully on 2026-10-20. Both native runners passed 44 of 45 tests with one other-platform test skipped and no failures. Windows passed the separate PowerShell 5.1 compatibility check. Both Mac architectures and Windows x64 passed package-source verification, and the publish job attached all six installers/archives plus SHA256SUMS.txt.
+
+All six public download URLs responded without authentication. File sizes and ZIP/EXE headers were checked with ranged requests; all six checksum entries match the GitHub asset digests, and the checksum file matches its own digest. This was endpoint/range verification, not a full installer re-download or Windows installation test. See [public release evidence](evidence/public-release-1.1.1.json). Local build bytes can differ from CI builds; use each distribution's own checksum file.
+
+## Historical version 1.1.0 checks
+
+Version 1.1.0 local verification was performed on 2026-10-20 on an Apple Silicon Mac running macOS 27.2. The following observations belong to 1.1.0 unless explicitly marked 1.0.
 
 - Syntax and catalog validation: all JavaScript parses; 12 distinct catalog IDs.
 - **27 passing Node tests and one Windows-only test skipped on macOS**: isolated settings persistence and corruption recovery, value validation, separate profiles, random favorites, CLI arguments, IPC sender rejection, preview isolation, cancellation, duplicate completion, native error cleanup, animations disabled with fullscreen off, QA guards, Mac shortcut forwarding and quiet login startup. Native OS calls are mocked in lifecycle tests.
@@ -16,7 +50,7 @@ Version 1.1.0 local verification performed on 2026-10-20, on an Apple Silicon Ma
 - Universal Swift helper compiled with arm64 and x86_64 slices. Both Mac app bundles pass strict, deep code-signature verification.
 - Mac arm64 / x64 DMG and ZIP packages and Windows x64 NSIS / ZIP packages were produced. Package verification compares bundled source, icons and native helpers with the checkout and rejects a shipped QA marker.
 
-The final UI corrections make a missing imported app path report “not found” and clarify multi-display thumbnail behavior. The studio now resumes its existing WebGL player after a preview rather than destroying the canvas context. Both automatic preview completion and Escape cancellation were rechecked in the packaged Mac QA app: the animated hero remains visible after returning to the studio.
+The 1.1.0 UI corrections made a missing imported app path report “not found” and clarify multi-display thumbnail behavior. The 1.1.0 studio resumed its existing WebGL player after a preview rather than destroying the canvas context. Both automatic preview completion and Escape cancellation were rechecked in the packaged Mac QA app: the animated hero remains visible after returning to the studio.
 
 ## Not yet verified on real targets
 
@@ -32,7 +66,7 @@ QA mode deliberately prevents real target launches and system permission changes
 
 Render reports are in [WebGL evidence](evidence/visual-webgl.json) and [Canvas 2D evidence](evidence/visual-canvas2d.json). Desktop screenshots are in `docs/images/`. The public [GitHub Actions runs](https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/actions) provide separate build evidence; a successful installer build is not a target-app interaction test.
 
-## Public preview build
+## Historical v1.1.0 public preview build
 
 The [v1.1.0 release workflow](https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/actions/runs/39487259442) builds commit `a1d158bb3cf44602162fa263a8e43bf529fcf1b9` on native macOS and Windows runners. Both platform build jobs passed on 2026-10-20:
 

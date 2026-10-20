@@ -1,0 +1,41 @@
+{
+  "environment": "macOS arm64 packaged LaunchFX 1.1.1 QA copy; production source unchanged; temporary settings; preview only",
+  "runs": [
+    {
+      "target": "codex",
+      "duration": "4s",
+      "motion": "system",
+      "reduced": "false",
+      "preview": "true",
+      "elapsed": "4080ms",
+      "action": "finish"
+    },
+    {
+      "target": "codex",
+      "duration": "10s",
+      "motion": "system",
+      "reduced": "false",
+      "preview": "true",
+      "elapsed": "10015ms",
+      "action": "finish"
+    },
+    {
+      "target": "codex",
+      "duration": "10s",
+      "motion": "always",
+      "reduced": "true",
+      "preview": "true",
+      "elapsed": "10016ms",
+      "action": "finish"
+    },
+    {
+      "target": "codex",
+      "duration": "4s",
+      "motion": "always",
+      "reduced": "true",
+      "preview": "true",
+      "elapsed": "4017ms",
+      "action": "finish"
+    }
+  ]
+}

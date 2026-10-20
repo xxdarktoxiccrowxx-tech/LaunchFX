@@ -4,7 +4,7 @@
 
 LaunchFX 是 macOS / Windows 的独立启动特效工坊。选择动画、预览效果，再通过 LaunchFX 或专用快捷方式打开应用。动画结束后，目标应用按你的配置进入全屏或普通窗口。
 
-[English](README.en.md) · [下载安装包](https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/releases/tag/v1.1.0) · [安装与使用](docs/USAGE.zh.md) · [构建与发布](docs/BUILD.md) · [验证记录](docs/VERIFICATION.md)
+[English](README.en.md) · [下载安装包](https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/releases/tag/v1.1.1) · [安装与使用](docs/USAGE.zh.md) · [构建与发布](docs/BUILD.md) · [验证记录](docs/VERIFICATION.md)
 
 ## 下载
 

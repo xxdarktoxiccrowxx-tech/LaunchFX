@@ -1,0 +1,79 @@
+{
+  "release": "https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/releases/tag/v1.1.1",
+  "workflow": "https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/actions/runs/39506915951",
+  "commit": "029a750e3ab5e77269510d6143bce1dcc5601f51",
+  "workflowConclusion": "success",
+  "testResults": {
+    "macOS": {
+      "tests": 45,
+      "passed": 44,
+      "failed": 0,
+      "skipped": 1
+    },
+    "Windows": {
+      "tests": 45,
+      "passed": 44,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "verifiedAtUTC": "2026-10-20T22:21:08.812519+00:00",
+  "checksums": "6/6 match GitHub asset digests",
+  "downloadVerification": "Unauthenticated public range requests verify accessibility, size, and ZIP/EXE signatures; full installer bytes were not re-downloaded.",
+  "downloads": [
+    {
+      "name": "LaunchFX-1.1.1-mac-arm64.dmg",
+      "status": "public download accessible",
+      "sha256": "matches release digest and checksum file",
+      "sha256Digest": "649c6a2c6db0c48303a1b5134de0c28382402304b5bb23dfb44380fd915936b7",
+      "size": 135252078,
+      "httpStatus": 206,
+      "url": "https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/releases/download/v1.1.1/LaunchFX-1.1.1-mac-arm64.dmg"
+    },
+    {
+      "name": "LaunchFX-1.1.1-mac-arm64.zip",
+      "status": "public download accessible",
+      "sha256": "matches release digest and checksum file",
+      "sha256Digest": "1f5e30d6e774276628be653317216d97d043681ea2d4cb882a5107a4cbdc8c76",
+      "size": 133719233,
+      "httpStatus": 206,
+      "url": "https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/releases/download/v1.1.1/LaunchFX-1.1.1-mac-arm64.zip"
+    },
+    {
+      "name": "LaunchFX-1.1.1-mac-x64.dmg",
+      "status": "public download accessible",
+      "sha256": "matches release digest and checksum file",
+      "sha256Digest": "ed1a0d33f4f7416e25190d4802ddf5248ccb8d3559e943c78da2ef6cb1e2f88c",
+      "size": 140771566,
+      "httpStatus": 206,
+      "url": "https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/releases/download/v1.1.1/LaunchFX-1.1.1-mac-x64.dmg"
+    },
+    {
+      "name": "LaunchFX-1.1.1-mac-x64.zip",
+      "status": "public download accessible",
+      "sha256": "matches release digest and checksum file",
+      "sha256Digest": "5cfa5cfc19eff598fce8153afc879cf68a229177116cb4fc21125a2baf34abd0",
+      "size": 139313105,
+      "httpStatus": 206,
+      "url": "https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/releases/download/v1.1.1/LaunchFX-1.1.1-mac-x64.zip"
+    },
+    {
+      "name": "LaunchFX-1.1.1-win-x64.exe",
+      "status": "public download accessible",
+      "sha256": "matches release digest and checksum file",
+      "sha256Digest": "025c25506bcfecc2126a68d7735a42b09e35a1d793904ac85ff51fbff418b623",
+      "size": 114386223,
+      "httpStatus": 206,
+      "url": "https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/releases/download/v1.1.1/LaunchFX-1.1.1-win-x64.exe"
+    },
+    {
+      "name": "LaunchFX-1.1.1-win-x64.zip",
+      "status": "public download accessible",
+      "sha256": "matches release digest and checksum file",
+      "sha256Digest": "f1a1b8f7b4b1747aa4c06550549514d3db0b3869f6b1c1091b3f69d56263b96a",
+      "size": 157611570,
+      "httpStatus": 206,
+      "url": "https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/releases/download/v1.1.1/LaunchFX-1.1.1-win-x64.zip"
+    }
+  ]
+}

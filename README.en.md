@@ -4,7 +4,7 @@
 
 A cinematic opening scene for **ChatGPT and Codex** on macOS and Windows. Choose an effect, preview it, then launch your installed app. Keep a quiet aurora for ChatGPT and a desktop-bending black hole for Codex—or make both entirely your own.
 
-[Download releases](https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/releases) · [User guide](docs/USAGE.en.md) · [中文](README.md)
+[Download v1.1.1](https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/releases/tag/v1.1.1) · [User guide](docs/USAGE.en.md) · [中文](README.md)
 
 ![LaunchFX animation studio](docs/images/studio-en.png)
 
