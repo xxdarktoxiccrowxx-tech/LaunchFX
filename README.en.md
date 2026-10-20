@@ -4,7 +4,11 @@
 
 A cinematic opening scene for **ChatGPT and Codex** on macOS and Windows. Choose an effect, preview it, then launch your installed app. Keep a quiet aurora for ChatGPT and a desktop-bending black hole for Codex—or make both entirely your own.
 
-[Download v1.1.1](https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/releases/tag/v1.1.1) · [User guide](docs/USAGE.en.md) · [中文](README.md)
+[User guide](docs/USAGE.en.md) · [Build from source](docs/BUILD.md) · [中文](README.md)
+
+## Public releases paused
+
+Development continues, but public installer downloads are paused until the maintainer decides the app is ready to publish again. Use an existing local copy or build from source below. Historical build and test records are development evidence, not a current download offer.
 
 ![LaunchFX animation studio](docs/images/studio-en.png)
 
@@ -20,9 +24,9 @@ A cinematic opening scene for **ChatGPT and Codex** on macOS and Windows. Choose
 
 LaunchFX runs offline, with no account, subscription, analytics, or cloud rendering. Effects are rendered with WebGL, with a Canvas 2D fallback. It does not patch or inject into OpenAI apps.
 
-## Install
+## Install a local build
 
-Download the appropriate package from [Releases](https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/releases). ChatGPT or Codex must be installed separately.
+The following instructions apply to packages you build locally or an existing local copy. ChatGPT or Codex must be installed separately.
 
 | Platform | Package | Installation |
 | --- | --- | --- |
@@ -33,9 +37,9 @@ Download the appropriate package from [Releases](https://github.com/xxdarktoxicc
 
 Install or move LaunchFX to its permanent location **before** creating app shortcuts.
 
-**Signing and verification:** Current macOS packages are ad-hoc signed and not Apple-notarized; Windows packages are not publisher-signed. macOS Gatekeeper or Windows SmartScreen may show a warning. Download only from this repository's release page and check any published checksums. Do not disable system security globally. If you do not trust a package, build from the source instead.
+**Signing and verification:** Local macOS packages are ad-hoc signed and not Apple-notarized; Windows packages are not publisher-signed. macOS Gatekeeper or Windows SmartScreen may show a warning. Do not disable system security globally.
 
-This is an early public release. See the [verification record](docs/VERIFICATION.md) for exactly what was checked. Packaging and safe-preview checks do **not** establish that real ChatGPT/Codex handoff, permissions, or full-screen behavior has been verified on every platform. Target-app behavior also depends on the installed client version.
+This is a development version. See the [verification record](docs/VERIFICATION.md) for exactly what was checked. Packaging and safe-preview checks do **not** establish that real ChatGPT/Codex handoff, permissions, or full-screen behavior has been verified on every platform. Target-app behavior also depends on the installed client version.
 
 ## Your first launch
 
@@ -80,7 +84,7 @@ pnpm dist:mac
 pnpm dist:win
 ```
 
-See [build and release instructions](docs/BUILD.md) for native builds, signing, and CI. Report reproducible problems in [Issues](https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/issues), including your OS version, LaunchFX version, target app, and the steps that failed. Do not include private desktop captures or chat content.
+Public releases and automatic publishing are paused. Publishing again requires an explicit decision from the maintainer. See [build and release instructions](docs/BUILD.md) for native builds, signing, and CI. Report reproducible problems in [Issues](https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/issues), including your OS version, LaunchFX version, target app, and the steps that failed. Do not include private desktop captures or chat content.
 
 ## License
 

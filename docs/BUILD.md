@@ -1,5 +1,7 @@
 # Build and release
 
+Public releases and installer distribution are paused. Continue local development and verification; do not publish a new release until the maintainer explicitly resumes distribution. 公开发布已暂停，继续本地开发和测试，重新发布须由维护者明确决定。
+
 ## Toolchain
 
 - Node.js 24 (minimum supported by this project: 22.12).
@@ -25,11 +27,11 @@ Build Windows installers on Windows for release verification. Cross-building on 
 
 This directory is the repository root. Upload its source contents, including `.github`, assets, native source, tests and `pnpm-lock.yaml`. Do not upload `node_modules`, `release`, local settings, test artifacts or signing credentials. The included `.gitignore` excludes generated outputs.
 
-`.github/workflows/build.yml` runs static checks and pure tests, then builds on separate macOS and Windows runners. Windows PowerShell 5.1 parses the native helper before packaging. Artifacts are attached to the workflow run. Publishing a GitHub Release triggers the same build, then a separate job with repository-content write access attaches installers and SHA-256 checksums. The release tag must exactly match `v` plus the package version. A tag push alone does not publish a public GitHub Release.
+`.github/workflows/build.yml` runs static checks and pure tests, then builds on separate macOS and Windows runners. Windows PowerShell 5.1 parses the native helper before packaging. Artifacts are attached to the workflow run. Automatic publishing is disabled: the workflow has no release trigger, tag-push trigger, publication job or repository-content write permission. Workflow artifacts are development build outputs, not published Releases.
 
 After building, `pnpm verify:packages` compares packaged application sources and helpers against the current checkout and checks that QA mode markers did not enter production packages.
 
-After testing downloaded artifacts, create a release and attach the appropriate installers, portable archives and checksums. For a local repository:
+When the maintainer explicitly resumes public releases, first validate the intended artifacts and prepare the matching installers, portable archives and checksums. Publishing automation must be deliberately restored at that time. To set up a source repository for development:
 
 ```sh
 git init -b main

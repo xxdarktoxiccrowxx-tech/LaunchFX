@@ -4,13 +4,13 @@
 
 LaunchFX 是 macOS / Windows 的独立启动特效工坊。选择动画、预览效果，再通过 LaunchFX 或专用快捷方式打开应用。动画结束后，目标应用按你的配置进入全屏或普通窗口。
 
-[English](README.en.md) · [下载安装包](https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/releases/tag/v1.1.1) · [安装与使用](docs/USAGE.zh.md) · [构建与发布](docs/BUILD.md) · [验证记录](docs/VERIFICATION.md)
+[English](README.en.md) · [使用说明](docs/USAGE.zh.md) · [本地构建](docs/BUILD.md) · [验证记录](docs/VERIFICATION.md)
 
-## 下载
+## 发布状态：暂停公开发布
 
-在 [GitHub Releases](https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/releases) 下载：M 系列 Mac 选 `mac-arm64.dmg`，Intel Mac 选 `mac-x64.dmg`，Windows 10/11 x64 选 `win-x64.exe`。每个版本附有 SHA-256 校验文件；无需安装开发工具。
+项目继续开发，公开安装包下载暂停，待版本更成熟后由维护者重新决定发布。目前请使用已有本地版本，或按下方开发步骤自行构建。历史构建与测试记录仅作开发参考，不代表当前有可下载的公开版本。
 
-目前 Mac 安装包使用临时签名，尚未经过 Developer ID 公证；Windows 安装包尚未进行 Authenticode 签名。系统可能显示发行者验证提示。实际目标应用的启动与全屏联动仍需在你的安装版本上确认，完整实测范围见[验证记录](docs/VERIFICATION.md)。
+本地 Mac 构建使用临时签名，尚未经过 Developer ID 公证；Windows 构建尚未进行 Authenticode 签名。实际目标应用的启动与全屏联动仍需在你的安装版本上确认，完整实测范围见[验证记录](docs/VERIFICATION.md)。
 
 ![LaunchFX 桌面工坊，安全预览模式](docs/images/studio-zh.png)
 
@@ -45,9 +45,9 @@ LaunchFX 是 macOS / Windows 的独立启动特效工坊。选择动画、预览
 - **配置管理**：自动保存、导入 / 导出、恢复默认、异常配置备份、手动应用路径、显示器选择、中英文界面。
 - **可取消**：Esc 跳过动画并继续启动；右上角 × 取消本次启动。预览中的 Esc 直接关闭预览。
 
-## 使用
+## 使用已有版本或本地构建
 
-1. 将 macOS `.app` 放入 Applications，或运行 Windows 安装程序。
+1. 将本地构建的 macOS `.app` 放入 Applications，或运行本地生成的 Windows 安装程序。
 2. 在「应用与入口」确认 ChatGPT / Codex 路径，必要时手动选择。
 3. 选择目标应用与动画，设置「启动后全屏」。
 4. 点击「预览」检查画面，再用「启动」打开目标应用。
@@ -79,7 +79,7 @@ pnpm dist:mac
 pnpm dist:win
 ```
 
-仓库包含 GitHub Actions，推送后在 macOS 与 Windows runner 上分别构建安装包。发布对应版本的 GitHub Release 后，工作流会构建并附加安装包与校验文件。发布前请阅读 [构建与发布](docs/BUILD.md)，配置自己的签名与公证。
+仓库保留 GitHub Actions 的 macOS 与 Windows 构建验证。公开发布已暂停，后续维护不会自动发布新版本。恢复发布需由维护者明确决定，并重新核对 [构建与发布](docs/BUILD.md) 中的签名、公证与验证要求。
 
 ## 支持范围
 

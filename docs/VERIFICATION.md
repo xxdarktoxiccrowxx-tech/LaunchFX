@@ -1,6 +1,8 @@
 # Verification status
 
-## Version 1.1.1 — duration and handoff fixes
+**Publication paused / 暂停公开发布:** Development continues while public installer distribution is paused. A new release requires an explicit maintainer decision. The records below describe historical builds and checks; their download results do not establish current availability. 项目继续开发，历史下载验证不代表现在仍提供公开安装包。
+
+## Historical version 1.1.1 — duration and handoff fixes
 
 Local source and browser checks were performed on 2026-10-20 on an Apple Silicon Mac. The production source is commit `029a750e3ab5e77269510d6143bce1dcc5601f51`. These results separate renderer timing, controller behavior, packaged UI operation and actual native integration.
 
@@ -32,7 +34,7 @@ All four previews completed and returned to the studio; the 10-second full-motio
 
 The [v1.1.1 release workflow](https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/actions/runs/39506915951) completed successfully on 2026-10-20. Both native runners passed 44 of 45 tests with one other-platform test skipped and no failures. Windows passed the separate PowerShell 5.1 compatibility check. Both Mac architectures and Windows x64 passed package-source verification, and the publish job attached all six installers/archives plus SHA256SUMS.txt.
 
-All six public download URLs responded without authentication. File sizes and ZIP/EXE headers were checked with ranged requests; all six checksum entries match the GitHub asset digests, and the checksum file matches its own digest. This was endpoint/range verification, not a full installer re-download or Windows installation test. See [public release evidence](evidence/public-release-1.1.1.json). Local build bytes can differ from CI builds; use each distribution's own checksum file.
+At the time of the 1.1.1 release check, all six public download URLs responded without authentication. File sizes and ZIP/EXE headers were checked with ranged requests; all six checksum entries match the GitHub asset digests, and the checksum file matches its own digest. This was endpoint/range verification, not a full installer re-download or Windows installation test. See [public release evidence](evidence/public-release-1.1.1.json). Local build bytes can differ from CI builds; use each distribution's own checksum file.
 
 ## Historical version 1.1.0 checks
 
@@ -73,6 +75,6 @@ The [v1.1.0 release workflow](https://github.com/xxdarktoxiccrowxx-tech/LaunchFX
 - Each platform passed 27 tests, with one test for the other operating system skipped. Windows executed the real PowerShell parser and compiled the Win32 declarations, then checked unified-client metadata using synthetic fixtures. It did not open ChatGPT or Codex.
 - Windows PowerShell 5.1 compatibility parsing passed separately.
 - Both macOS architectures and Windows x64 passed package-source, icon, native-helper and production-mode checks. The Windows verifier now uses native path separators for the archive API; its initial CI failure was in the verifier, not a missing packaged source file.
-- The release contains Mac arm64/x64 DMG and ZIP packages, Windows x64 NSIS and ZIP packages, and SHA-256 checksums. All six public download endpoints responded successfully; the checksum file matches the six GitHub asset SHA-256 digests. See [public download evidence](evidence/public-release.json). These are CI builds; local rebuilds can differ in bytes. Match downloads against the release's own checksum file.
+- At the time of the 1.1.0 check, the release contained Mac arm64/x64 DMG and ZIP packages, Windows x64 NSIS and ZIP packages, and SHA-256 checksums. All six public download endpoints responded successfully; the checksum file matches the six GitHub asset SHA-256 digests. See [public download evidence](evidence/public-release.json). These are CI builds; local rebuilds can differ in bytes. Match downloads against the release's own checksum file.
 
-Before promoting this public preview to a stable release, run the produced app on both operating systems with the installed target apps. Check cold and already-running launches, animation off/fullscreen on and animation on/fullscreen off, skip/cancel, Store installations, two displays, reduced motion, denied/granted permissions, shortcuts while the studio is in the tray, and login startup. Sign and notarize the release with the maintainer's credentials.
+Before resuming public releases, run the produced app on both operating systems with the installed target apps. Check cold and already-running launches, animation off/fullscreen on and animation on/fullscreen off, skip/cancel, Store installations, two displays, reduced motion, denied/granted permissions, shortcuts while the studio is in the tray, and login startup. Sign and notarize the release with the maintainer's credentials.
