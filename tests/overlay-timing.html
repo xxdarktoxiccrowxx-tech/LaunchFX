@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'">
+<title>LaunchFX · Overlay timing verification</title>
+<link rel="stylesheet" href="../src/renderer/overlay.css">
+<style>
+#fixture-report{position:fixed;inset:0;z-index:100;background:#090d16;color:#dce6f8;padding:32px;overflow:auto;font:13px system-ui}
+#fixture-report[hidden]{display:none}#fixture-report h1{font-size:24px;margin:0 0 10px}#fixture-report p{color:#a8b8d3}
+#fixture-report pre{font:12px ui-monospace,monospace;white-space:pre-wrap;line-height:1.5;border:1px solid #27354a;padding:18px;border-radius:12px}
+#fixture-report a{color:#a6c5ff}#fixture-running{position:fixed;z-index:99;top:10px;left:50%;transform:translateX(-50%);color:#a7b7d2;background:#0a1020cc;padding:5px 10px;border-radius:8px;font:10px ui-monospace,monospace;pointer-events:none}
+</style>
+</head>
+<body>
+<div id="fixture-host"></div>
+<div id="fixture-running">Timing fixture · no target app or screen capture</div>
+<section id="fixture-report" hidden>
+  <h1>Production overlay timing</h1>
+  <p>This runs the real overlay module and markup against a local mock bridge. No native application or desktop capture is available.</p>
+  <nav><a href="?duration=4&reduce=never">4 seconds / full motion</a> · <a href="?duration=10&reduce=never">10 seconds / full motion</a> · <a href="?duration=4&reduce=always">4 seconds / reduced motion</a> · <a href="?duration=10&reduce=always">10 seconds / reduced motion</a></nav>
+  <pre id="report" aria-label="Overlay timing test results">Starting…</pre>
+</section>
+<script type="module" src="./overlay-timing.mjs"></script>
+</body>
+</html>

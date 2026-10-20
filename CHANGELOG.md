@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.1.1 — 2026-10-20 · Playback timing fix
+
+- Honor the selected duration in normal and reduced-motion modes. Reduced motion now uses a visible still scene with gentle fades, rather than a fixed 0.65-second near-black frame.
+- Use a monotonic playback clock so dropped frames do not distort duration. Start timing after the renderer is ready.
+- Remove the overlay before waiting for native app/window confirmation; renderer failures and timeouts cancel with an error instead of launching an unfinished scene.
+- Pause studio rendering during previews and launches, retain the hero canvas, and resume it afterwards.
+- Keep failed settings edits available for retry and block stale-setting launches until saving succeeds.
+- Add duration, native-handoff, watchdog, readiness and settings-queue regression coverage.
+
+### 中文
+
+修复预览及启动时的短暂播放、黑屏停帧和时长失效。4 秒／10 秒设置在普通与减少动态模式下都按所选时长播放；优化后台渲染开销，并让保存失败可以重试。
+
 ## 1.1.0 — 2026-10-20 · Public preview
 
 - Redesign all twelve WebGL and Canvas 2D effects around a recognizable focal form, restrained backgrounds and distinct entry, hold and handoff stages.

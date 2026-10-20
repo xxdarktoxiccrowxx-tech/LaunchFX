@@ -35,5 +35,7 @@ contextBridge.exposeInMainWorld('launchfx', Object.freeze({
   onStateChanged: handler => subscribe('state-changed', handler),
   onLaunchStatus: subscribeStatus,
   overlayConfig: () => invoke('overlay-config'),
+  overlayReady: () => invoke('overlay-ready'),
+  failOverlay: message => invoke('overlay-failed', typeof message === 'string' ? message.slice(0, 512) : 'The animation could not continue.'),
   finishOverlay: action => invoke('overlay-finish', action)
 }));

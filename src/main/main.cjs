@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, protocol, net, session, screen, systemPreferences, nativeTheme, desktopCapturer, dialog, shell, Tray, Menu, nativeImage, globalShortcut } = require('electron');
+const { app, BrowserWindow, ipcMain, protocol, net, session, screen, systemPreferences, desktopCapturer, dialog, shell, Tray, Menu, nativeImage, globalShortcut } = require('electron');
 const fs = require('node:fs');
 const path = require('node:path');
 const os = require('node:os');
@@ -142,7 +142,10 @@ function displayFor(settings) {
   return screen.getAllDisplays().find(d => String(d.id) === settings.display) || screen.getPrimaryDisplay();
 }
 function reducedMotion(settings) {
-  return settings.reduceMotion === 'always' || (settings.reduceMotion === 'system' && nativeTheme.prefersReducedMotion);
+  if (settings.reduceMotion === 'always') return true;
+  if (settings.reduceMotion !== 'system') return false;
+  try { return systemPreferences.getAnimationSettings?.()?.prefersReducedMotion === true; }
+  catch { return false; }
 }
 async function captureDesktop(display, settings, preview) {
   if (qa || preview || !settings.desktopCapture) return null;
@@ -165,6 +168,30 @@ function reportError(error) {
 function closeOverlay() {
   const current = overlay; overlay = null;
   if (current && !current.isDestroyed()) current.destroy();
+}
+function abortAnimation(operation, message) {
+  if (!operation || active !== operation || operation.finishing) return;
+  operation.finishing = true;
+  operation.cancelled = true;
+  clearTimeout(operation.timer);
+  operation.config.desktopImage = null;
+  active = null;
+  closeOverlay();
+  reportError(new Error(message));
+}
+function overlayReady() {
+  const operation = active;
+  if (!operation || operation.finishing) throw new Error('The animation is no longer active.');
+  if (operation.ready) return { ok: true };
+  operation.ready = true;
+  operation.startedAt = Date.now();
+  clearTimeout(operation.timer);
+  overlay.show();
+  overlay.focus();
+  status('playing', '', operation.targetId);
+  safeLog('animation-start', `target=${operation.targetId} duration=${operation.config.duration}s motion=${operation.config.reduceMotion} reduced=${operation.config.reducedMotion} preview=${operation.preview}`);
+  operation.timer = setTimeout(() => abortAnimation(operation, 'The animation stopped responding. No application was opened. Try Eco quality or another effect.'), Math.max(8000, operation.config.duration * 1000 + 6000));
+  return { ok: true };
 }
 async function nativeLaunch(operation) {
   if (active !== operation || operation.cancelled) return;
@@ -190,6 +217,7 @@ async function finishOperation(action) {
   if (!['finish', 'skip', 'cancel'].includes(action)) throw new Error('Invalid transition action.');
   operation.finishing = true;
   clearTimeout(operation.timer);
+  safeLog('animation-complete', `target=${operation.targetId} duration=${operation.config.duration}s elapsed=${operation.startedAt === null ? 0 : Math.max(0, Date.now() - operation.startedAt)}ms action=${action} preview=${operation.preview}`);
   if (action === 'cancel' || operation.preview) {
     operation.cancelled = true;
     operation.config.desktopImage = null;
@@ -198,6 +226,10 @@ async function finishOperation(action) {
     if (operation.preview) showStudio();
     return;
   }
+  // Window-mode confirmation can take several seconds. Never cover the target
+  // with a stopped animation while waiting for the native helper to finish.
+  operation.config.desktopImage = null;
+  closeOverlay();
   operation.timer = setTimeout(() => {
     if (active !== operation) return;
     operation.cancelled = true;
@@ -214,7 +246,7 @@ async function beginLaunch(targetId, preview = false, effectId = null) {
   if (effectId !== null && !EFFECT_IDS.has(effectId)) throw new Error('Unknown animation.');
   const settings = store.get(), profile = settings.profiles[targetId], display = displayFor(settings);
   const operation = {
-    targetId, profile, preview, cancelled: false, finishing: false, timer: null, detected: null,
+    targetId, profile, preview, cancelled: false, finishing: false, ready: false, startedAt: null, timer: null, detected: null,
     config: {
       effectId: effectId || selectEffect(settings, targetId), targetName: titleFor(targetId), targetId,
       duration: profile.duration, intensity: settings.intensity, quality: settings.quality,
@@ -240,21 +272,21 @@ async function beginLaunch(targetId, preview = false, effectId = null) {
     hardenWindow(overlay);
     overlay.setMenu(null);
     if (process.platform === 'darwin') overlay.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
-    overlay.once('ready-to-show', () => { if (overlay && active === operation) { overlay.show(); overlay.focus(); } });
     overlay.webContents.on('render-process-gone', () => {
-      if (active !== operation) return;
-      closeOverlay(); active = null; clearTimeout(operation.timer);
-      reportError(new Error('The animation renderer stopped. Try Eco quality or another effect.'));
+      abortAnimation(operation, 'The animation renderer stopped. No application was opened. Try Eco quality or another effect.');
     });
     overlay.on('closed', () => {
       if (active === operation && !operation.finishing) finishOperation('cancel');
     });
+    // Loading/compilation has its own deadline. Playback timing starts only
+    // after the renderer has painted its first frame and acknowledges readiness.
+    operation.timer = setTimeout(() => abortAnimation(operation, 'The animation could not start. No application was opened. Try Eco quality or another effect.'), 8000);
     await overlay.loadURL(origin + '/overlay.html');
-    status('playing', '', targetId);
-    operation.timer = setTimeout(() => { if (active === operation) finishOperation('finish').catch(reportError); }, Math.max(8000, operation.config.duration * 1000 + 6000));
-    return { ok: true };
+    return { ok: active === operation };
   } catch (error) {
-    if (active === operation) { clearTimeout(operation.timer); operation.config.desktopImage = null; closeOverlay(); active = null; }
+    const wasCancelled = operation.cancelled;
+    if (active === operation) { clearTimeout(operation.timer); operation.config.desktopImage = null; active = null; closeOverlay(); }
+    if (wasCancelled) return { ok: false };
     throw error;
   }
 }
@@ -332,6 +364,13 @@ function registerIPC() {
     await broadcast(); return { ok: true };
   });
   ipcMain.handle('launchfx:overlay-config', event => { assertOverlay(event); return active?.config || null; });
+  ipcMain.handle('launchfx:overlay-ready', event => { assertOverlay(event); return overlayReady(); });
+  ipcMain.handle('launchfx:overlay-failed', (event, message) => {
+    assertOverlay(event);
+    if (typeof message !== 'string' || !message.trim() || message.length > 512) throw new Error('Invalid animation error.');
+    abortAnimation(active, message.trim());
+    return { ok: true };
+  });
   ipcMain.handle('launchfx:overlay-finish', async (event, action) => { assertOverlay(event); await finishOperation(action); return { ok: true }; });
 }
 async function dispatchArgs(args) {

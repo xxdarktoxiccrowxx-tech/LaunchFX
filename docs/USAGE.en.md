@@ -80,13 +80,15 @@ Under **Appearance & performance**, choose Balanced, High, or Eco quality, and a
 
 Motion intensity changes the effect's strength. Accent color changes its lighting while each scene keeps its visual character. Display selection can follow the pointer, use the main display, or use a specific connected display.
 
-**Reduce motion** can follow the system, remain on, or always play the full animation. Reduced motion keeps the studio preview still and replaces the launch sequence with a short, gentle transition.
+**Reduce motion** can follow the system, remain on, or always play the full animation. Reduced motion keeps the studio preview still and uses a static scene with gentle fades during launch. It preserves your selected duration: 4 seconds and 10 seconds remain different lengths. When reduced motion is active, a hint appears beside Duration. The studio pauses background rendering while a launch or preview is running, then resumes afterward.
 
 **Play a launch sound** is off by default. When enabled, a soft ambient sound is generated locally for real launches. Volume is separate. Safe previews remain silent.
 
 You can navigate with the keyboard. `⌘/Ctrl + F` focuses effect search, and `⌘/Ctrl + ,` opens Settings. Visible focus outlines mark the active control.
 
 ## Save, move, and reset your setup
+
+Settings save automatically. If a write fails, **Not saved** and **Retry save** appear at the top. Launch and preview wait for a successful save instead of using old settings. Retry, or change another setting, to save all outstanding changes.
 
 Changes save automatically. **Settings → Settings & data** lets you export or import a JSON file, open the data folder, or reset your configuration. Reset asks for confirmation and preserves a backup.
 

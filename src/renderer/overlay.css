@@ -8,3 +8,5 @@
 #cancel{font-size:26px;opacity:.8}#cancel:hover{opacity:1}
 :lang(zh-CN) .identity>span:last-child{letter-spacing:1px}
 @media(max-width:900px){.arrival>span{font-size:10px;letter-spacing:.3px}.identity>span:last-child{font-size:9px}.timeline{letter-spacing:.7px}.mode{max-width:27%;font-size:8px}}
+
+#experience.reduced-motion .arrival{filter:none;transform:none}
