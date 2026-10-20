@@ -1,0 +1,3 @@
+Verified mac-arm64: current source, icons, native helper and production mode.
+Verified mac-x64: current source, icons, native helper and production mode.
+Verified win-x64-cross: current source, icons, native helper and production mode.

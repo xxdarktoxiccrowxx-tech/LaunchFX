@@ -1,0 +1,1 @@
+1.1.0 Windows cross-build: NSIS installer produced; ZIP CRC and executable presence verified. Windows installation and real window behavior not tested locally.

@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'">
+<title>LaunchFX · Visual QA</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#090c13;color:#e6ebf7;font-family:system-ui,sans-serif;padding:30px}main{max-width:1280px;margin:auto}header{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-bottom:22px}h1{font-size:25px;letter-spacing:-.04em;margin:0 0 6px}p{font-size:13px;color:#9ca9c1;margin:0}#summary{padding:9px 13px;border:1px solid #26344d;border-radius:9px;font:12px ui-monospace,monospace}#summary.pass{color:#93e8bd}#summary.fail{color:#ffb8b8}.hero{position:relative;height:360px;border:1px solid #253047;border-radius:18px;overflow:hidden;background:#02050a}.hero canvas{display:block;width:100%;height:100%}.caption{position:absolute;left:25px;bottom:24px;pointer-events:none}.caption strong{font-size:23px;font-weight:500}.caption p{margin-top:6px}nav{display:flex;gap:8px;flex-wrap:wrap;margin:15px 0 25px;align-items:center}button,select{border:1px solid #2b3853;background:#141d2e;color:#cfd9ee;border-radius:8px;padding:9px 12px;font:12px system-ui;cursor:pointer}button:hover,select:hover{background:#23314a}button:focus-visible,select:focus-visible{outline:2px solid #8badff;outline-offset:2px}button[aria-pressed=true]{background:#344d7d;border-color:#6e8dbd}#fps{font:12px ui-monospace,monospace;color:#99b7e8;margin-left:auto}#grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.card{border:1px solid #202c41;border-radius:13px;overflow:hidden;background:#101623}.card img{display:block;width:100%;aspect-ratio:16/9;background:#02050b}.card .info{padding:13px}.card h2{margin:0 0 8px;font-size:14px;font-weight:550}.card pre{margin:0;color:#8bbfa9;font:10px ui-monospace,monospace;white-space:pre-wrap}.card.fail{border-color:#9f4b58}.card.fail pre{color:#ffc4cd}#report{margin:24px 0;background:#111a28;border:1px solid #233048;padding:18px;border-radius:12px;font:11px ui-monospace,monospace;white-space:pre-wrap;color:#a5b8d5}footer{color:#75849d;font-size:12px;margin:24px 0}#poster-source{position:absolute;width:384px;height:216px;left:-10000px;top:0}@media(max-width:900px){#grid{grid-template-columns:repeat(2,1fr)}body{padding:18px}}
+</style>
+</head>
+<body>
+<main>
+  <header><div><h1>LaunchFX / visual verification</h1><p>12 original effects · one reusable poster renderer · no real desktop capture or app launch</p></div><div id="summary">Rendering…</div></header>
+  <p style="margin-bottom:16px"><span id="backend-mode">Backend test: automatic WebGL</span> · <a id="backend-link" href="./visual-effects.html?backend=canvas2d" style="color:#abc9ff">Test Canvas 2D fallback</a></p>
+  <section class="hero"><canvas id="live"></canvas><div class="caption"><strong id="live-name">Singularity</strong><p id="live-note">Live synthetic preview</p></div></section>
+  <nav>
+    <select id="effect" aria-label="Choose live effect"></select>
+    <button id="pause" aria-pressed="false">Pause</button>
+    <button id="cycle" aria-pressed="false">Auto-cycle</button>
+    <button id="desktop" aria-pressed="false">Use synthetic desktop</button>
+    <button id="finish">Check final black frame</button>
+    <button id="rerun">Re-run 12 checks</button>
+    <span id="fps">Measuring FPS…</span>
+  </nav>
+  <p id="desktop-result" role="status" style="margin-bottom:18px">Synthetic desktop texture has not been loaded.</p>
+  <section id="grid" aria-label="All effect snapshots"></section>
+  <pre id="report" aria-label="Visual test results"></pre>
+  <footer>The sampled brightness and frame hashes are evidence of rendering, not a visual design score. FPS reflects this preview surface only.</footer>
+</main>
+<canvas id="poster-source" width="384" height="216" aria-hidden="true"></canvas>
+<script type="module" src="./visual-effects.mjs"></script>
+</body>
+</html>

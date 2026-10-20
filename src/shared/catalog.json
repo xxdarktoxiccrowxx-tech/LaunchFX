@@ -1,0 +1,14 @@
+[
+  {"id":"singularity","name":"黑洞奇点","nameEn":"Singularity","description":"让现实弯曲，坠入银蓝色事件视界。","descriptionEn":"Fold reality into a silver-blue event horizon.","category":"cosmic","accent":"#a2b9f5"},
+  {"id":"quantum","name":"量子跃迁","nameEn":"Quantum Leap","description":"概率之云，在一瞬间凝聚成秩序。","descriptionEn":"A probability cloud resolves into order.","category":"particles","accent":"#8eafff"},
+  {"id":"aurora","name":"极光轻幕","nameEn":"Aurora","description":"柔软的光带，轻轻揭开新的空间。","descriptionEn":"Soft ribbons of light unveil a new space.","category":"ambient","accent":"#7ce4c7"},
+  {"id":"warp","name":"曲速穿梭","nameEn":"Warp Drive","description":"穿过星光隧道，抵达灵感的另一端。","descriptionEn":"Travel through a tunnel of starlight.","category":"cosmic","accent":"#79beff"},
+  {"id":"matrix","name":"代码之雨","nameEn":"Code Rain","description":"字符流汇聚，打开你的数字世界。","descriptionEn":"Cascading code opens your digital world.","category":"digital","accent":"#79e6a4"},
+  {"id":"portal","name":"棱镜之门","nameEn":"Prism Portal","description":"层叠的几何光门，通往下一种可能。","descriptionEn":"Layered geometric portals lead to possibility.","category":"digital","accent":"#c19aff"},
+  {"id":"eclipse","name":"日蚀之光","nameEn":"Eclipse","description":"光与影交错，日冕在黑暗中苏醒。","descriptionEn":"A corona awakens where light meets shadow.","category":"cosmic","accent":"#edbd80"},
+  {"id":"nebula","name":"星云绽放","nameEn":"Nebula Bloom","description":"宇宙尘埃缓缓流动，绽放深空色彩。","descriptionEn":"Cosmic dust blooms into deep-space color.","category":"ambient","accent":"#b49be5"},
+  {"id":"ripple","name":"引力涟漪","nameEn":"Gravity Ripple","description":"一圈涟漪，让整片空间为之回应。","descriptionEn":"One ripple moves an entire field of space.","category":"ambient","accent":"#7ad9e5"},
+  {"id":"orbit","name":"星环轨道","nameEn":"Orbital","description":"光点沿精密轨道旋转，汇入中心。","descriptionEn":"Light follows precise orbits into the center.","category":"particles","accent":"#a0c5ff"},
+  {"id":"ink","name":"流墨归一","nameEn":"Liquid Ink","description":"黑白流体交融，留出安静的开场。","descriptionEn":"Monochrome fluid creates a quiet entrance.","category":"ambient","accent":"#d5d9e3"},
+  {"id":"constellation","name":"群星汇聚","nameEn":"Constellation","description":"散落的星光连成网络，点亮想象。","descriptionEn":"Scattered stars connect and ignite imagination.","category":"particles","accent":"#93baff"}
+]

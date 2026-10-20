@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; media-src 'self' data:; object-src 'none'; base-uri 'none'">
+<title>LaunchFX</title>
+<link rel="stylesheet" href="./overlay.css">
+</head>
+<body>
+<main id="experience" aria-label="Launch animation">
+<canvas id="scene" aria-hidden="true"></canvas>
+<div class="veil" aria-hidden="true"></div>
+<header class="top"><div class="identity"><span class="monogram">L<span>✦</span></span><span>LaunchFX</span><i></i><span id="effect-label">LAUNCH EXPERIENCE</span></div><button id="cancel" aria-label="Cancel launch" title="Cancel launch">×</button></header>
+
+
+<section id="arrival" class="arrival" aria-hidden="true"><p id="arrival-eyebrow">YOUR NEXT MOMENT</p><h1 id="target-name">Codex</h1><span id="arrival-copy">A new space for your ideas.</span></section>
+<footer class="bottom"><div class="mode"><span class="mode-dot"></span><span id="mode-label">Opening scene</span></div><div class="timeline"><span id="stage">BEGIN</span><div class="track"><span id="progress"></span></div><span id="remaining">06</span></div><button id="skip"><span id="skip-label">Skip</span><kbd>esc</kbd></button></footer>
+<div id="preview-badge" hidden>PREVIEW ONLY</div>
+<p id="error" class="error" hidden></p>
+<span id="status" class="sr-only" aria-live="polite"></span>
+</main>
+<script type="module" src="./overlay.js"></script>
+</body>
+</html>

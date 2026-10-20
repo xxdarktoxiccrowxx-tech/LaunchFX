@@ -1,0 +1,2 @@
+1.1.0 mac-arm64: strict signature, DMG checksum and ZIP CRC verified.
+1.1.0 mac-x64: strict signature, DMG checksum and ZIP CRC verified.

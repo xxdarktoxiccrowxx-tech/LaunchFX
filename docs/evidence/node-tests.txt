@@ -1,0 +1,36 @@
+✔ preview with desktop capture enabled never captures or launches the target (27.806292ms)
+✔ cancelling an animation prevents native application launch (3.194417ms)
+✔ disabled animation still applies the selected windowed mode exactly once (5.466333ms)
+✔ only one launch can own the overlay and duplicate finishes do not relaunch (2.724209ms)
+✔ native errors release the overlay and surface an actionable status (2.128334ms)
+✔ cancel after native launch begins does not claim the launch was cancelled (1.816875ms)
+✔ QA mode rejects actual launches and system permission changes (1.364084ms)
+✔ IPC rejects a renderer outside the studio window (1.690875ms)
+✔ macOS login launches stay in the tray even when the OS does not forward arguments (3.364667ms)
+✔ shortcut launches surface native fullscreen warnings even without an open studio (2.061292ms)
+✔ animation renderer failure closes the overlay without launching a target (1.610875ms)
+✔ first-run UI language follows the operating system (2.105125ms)
+✔ Windows uses a ChatGPT install for Codex only after matching protocol ownership (6.577417ms)
+✔ Windows preserves explicit application mode for a unified client (0.738417ms)
+✔ Store metadata preserves exact activation identity and unified capability (2.56675ms)
+✔ QA Windows detection never executes registry or Store inspection helpers (1.372625ms)
+✔ native response and execution errors produce actionable messages (0.67525ms)
+✔ profiles keep animation and fullscreen choices independent (1.183333ms)
+✔ untrusted imports clamp values, allowlist effects, and drop unknown code fields (0.157459ms)
+✔ random selection uses favorites, with complete catalog fallback (0.13725ms)
+✔ settings save and reopen preserve user choices and create recoverable backups (3.0335ms)
+✔ corrupt settings recover without erasing the original file (2.853333ms)
+✔ startup arguments reject arbitrary targets and commands (0.336125ms)
+✔ platform paths require absolute application bundles or executables (0.361542ms)
+✔ generated macOS shortcut shell quoting preserves literal punctuation (0.159541ms)
+✔ macOS shortcuts forward launch arguments when LaunchFX is already running (7.250625ms)
+✔ system locale sets first-run and reset language without replacing saved preferences (1.860667ms)
+﹣ Windows helper parses, compiles its Win32 declarations, and verifies unified metadata with fixtures (0.410458ms) # SKIP
+ℹ tests 28
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 1
+ℹ todo 0
+ℹ duration_ms 444.542292

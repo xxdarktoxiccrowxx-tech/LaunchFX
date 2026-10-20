@@ -1,0 +1,121 @@
+{
+  "name": "launchfx",
+  "productName": "LaunchFX",
+  "version": "1.1.0",
+  "description": "A cinematic, offline launch-animation studio for ChatGPT and Codex.",
+  "author": "LaunchFX contributors",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "main": "src/main/main.cjs",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "packageManager": "pnpm@11.25.0",
+  "scripts": {
+    "start": "electron .",
+    "dev": "electron .",
+    "qa": "electron . --qa",
+    "test": "node --test",
+    "check": "node scripts/check.mjs",
+    "verify:packages": "node scripts/verify-packages.mjs",
+    "build:native": "node scripts/build-native.mjs",
+    "pack": "node scripts/build-native.mjs && electron-builder --dir",
+    "dist:mac": "node scripts/build-native.mjs --universal && electron-builder --mac",
+    "dist:win": "electron-builder --win --x64",
+    "dist": "node scripts/build-native.mjs --universal && electron-builder"
+  },
+  "devDependencies": {
+    "electron": "44.9.2",
+    "electron-builder": "26.15.3"
+  },
+  "build": {
+    "appId": "io.launchfx.studio",
+    "productName": "LaunchFX",
+    "artifactName": "LaunchFX-${version}-${os}-${arch}.${ext}",
+    "directories": {
+      "output": "release",
+      "buildResources": "assets"
+    },
+    "files": [
+      "src/**/*",
+      "assets/**/*",
+      "package.json",
+      "LICENSE"
+    ],
+    "extraResources": [
+      {
+        "from": "native",
+        "to": "native",
+        "filter": [
+          "bin/**",
+          "windows/**"
+        ]
+      },
+      {
+        "from": "assets/icon.ico",
+        "to": "icon.ico"
+      }
+    ],
+    "asar": true,
+    "npmRebuild": false,
+    "mac": {
+      "category": "public.app-category.utilities",
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "arm64",
+            "x64"
+          ]
+        }
+      ],
+      "icon": "assets/icon.icns",
+      "minimumSystemVersion": "14.0",
+      "identity": "-",
+      "hardenedRuntime": true,
+      "entitlements": "assets/entitlements.mac.plist",
+      "entitlementsInherit": "assets/entitlements.mac.plist",
+      "extendInfo": {
+        "NSHumanReadableCopyright": "LaunchFX contributors. Independent project; not affiliated with OpenAI.",
+        "NSScreenCaptureUsageDescription": "Optionally use a temporary desktop image for a local launch transition. Images are not saved or uploaded."
+      }
+    },
+    "dmg": {
+      "title": "LaunchFX",
+      "backgroundColor": "#0b0d14"
+    },
+    "win": {
+      "icon": "assets/icon.ico",
+      "target": [
+        "nsis",
+        "zip"
+      ],
+      "signAndEditExecutable": true,
+      "signExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "perMachine": false,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "LaunchFX"
+    }
+  },
+  "homepage": "https://github.com/xxdarktoxiccrowxx-tech/LaunchFX",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xxdarktoxiccrowxx-tech/LaunchFX.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xxdarktoxiccrowxx-tech/LaunchFX/issues"
+  }
+}

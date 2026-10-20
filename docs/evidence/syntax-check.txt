@@ -1,0 +1,1 @@
+Syntax and catalog checks passed (12 effects).

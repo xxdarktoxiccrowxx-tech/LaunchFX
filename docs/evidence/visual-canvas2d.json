@@ -1,0 +1,457 @@
+{
+  "passed": 12,
+  "total": 12,
+  "distinctFrames": 12,
+  "backend": "canvas2d",
+  "forcedCanvas2D": true,
+  "pixelSize": [
+    326,
+    184
+  ],
+  "results": [
+    {
+      "id": "singularity",
+      "backend": "canvas2d",
+      "passed": true,
+      "error": null,
+      "pixels": {
+        "brightness": 2.7,
+        "maximum": 225.33,
+        "nonBlackPercent": 5.8,
+        "hash": "12b7e4b3"
+      },
+      "stages": [
+        {
+          "progress": 0.08,
+          "brightness": 2.87,
+          "maximum": 227.33,
+          "nonBlackPercent": 6.2,
+          "hash": "c56ebc9"
+        },
+        {
+          "progress": 0.45,
+          "brightness": 2.84,
+          "maximum": 227.33,
+          "nonBlackPercent": 5.8,
+          "hash": "7310b40e"
+        },
+        {
+          "progress": 0.8,
+          "brightness": 3.69,
+          "maximum": 227.33,
+          "nonBlackPercent": 7.2,
+          "hash": "ffab3888"
+        }
+      ],
+      "stageMotion": true,
+      "finalBlack": true
+    },
+    {
+      "id": "quantum",
+      "backend": "canvas2d",
+      "passed": true,
+      "error": null,
+      "pixels": {
+        "brightness": 1.45,
+        "maximum": 239,
+        "nonBlackPercent": 6,
+        "hash": "fc9e7e59"
+      },
+      "stages": [
+        {
+          "progress": 0.08,
+          "brightness": 1.24,
+          "maximum": 239,
+          "nonBlackPercent": 5.2,
+          "hash": "3f3f9f96"
+        },
+        {
+          "progress": 0.45,
+          "brightness": 1.45,
+          "maximum": 239,
+          "nonBlackPercent": 6,
+          "hash": "b33123c1"
+        },
+        {
+          "progress": 0.8,
+          "brightness": 0.14,
+          "maximum": 86,
+          "nonBlackPercent": 0.8,
+          "hash": "cf3f9dff"
+        }
+      ],
+      "stageMotion": true,
+      "finalBlack": true
+    },
+    {
+      "id": "aurora",
+      "backend": "canvas2d",
+      "passed": true,
+      "error": null,
+      "pixels": {
+        "brightness": 1.83,
+        "maximum": 107.33,
+        "nonBlackPercent": 7.4,
+        "hash": "86796429"
+      },
+      "stages": [
+        {
+          "progress": 0.08,
+          "brightness": 1.86,
+          "maximum": 113,
+          "nonBlackPercent": 7.6,
+          "hash": "e57ca8ab"
+        },
+        {
+          "progress": 0.45,
+          "brightness": 1.83,
+          "maximum": 111.67,
+          "nonBlackPercent": 7.4,
+          "hash": "d696e17b"
+        },
+        {
+          "progress": 0.8,
+          "brightness": 0.95,
+          "maximum": 99.33,
+          "nonBlackPercent": 4.4,
+          "hash": "de092f2b"
+        }
+      ],
+      "stageMotion": true,
+      "finalBlack": true
+    },
+    {
+      "id": "warp",
+      "backend": "canvas2d",
+      "passed": true,
+      "error": null,
+      "pixels": {
+        "brightness": 1.2,
+        "maximum": 219,
+        "nonBlackPercent": 4.3,
+        "hash": "a4ac8d10"
+      },
+      "stages": [
+        {
+          "progress": 0.08,
+          "brightness": 1.25,
+          "maximum": 219,
+          "nonBlackPercent": 4.4,
+          "hash": "5d654520"
+        },
+        {
+          "progress": 0.45,
+          "brightness": 1.2,
+          "maximum": 219,
+          "nonBlackPercent": 4.3,
+          "hash": "f120d411"
+        },
+        {
+          "progress": 0.8,
+          "brightness": 2.02,
+          "maximum": 219,
+          "nonBlackPercent": 6.5,
+          "hash": "e17a8b28"
+        }
+      ],
+      "stageMotion": true,
+      "finalBlack": true
+    },
+    {
+      "id": "matrix",
+      "backend": "canvas2d",
+      "passed": true,
+      "error": null,
+      "pixels": {
+        "brightness": 1.01,
+        "maximum": 202,
+        "nonBlackPercent": 2.6,
+        "hash": "f4766a32"
+      },
+      "stages": [
+        {
+          "progress": 0.08,
+          "brightness": 1.03,
+          "maximum": 202,
+          "nonBlackPercent": 2.7,
+          "hash": "b4e065db"
+        },
+        {
+          "progress": 0.45,
+          "brightness": 1,
+          "maximum": 202,
+          "nonBlackPercent": 2.6,
+          "hash": "e70ebff3"
+        },
+        {
+          "progress": 0.8,
+          "brightness": 0.38,
+          "maximum": 202,
+          "nonBlackPercent": 1.4,
+          "hash": "bbbcd27f"
+        }
+      ],
+      "stageMotion": true,
+      "finalBlack": true
+    },
+    {
+      "id": "portal",
+      "backend": "canvas2d",
+      "passed": true,
+      "error": null,
+      "pixels": {
+        "brightness": 2.83,
+        "maximum": 188.67,
+        "nonBlackPercent": 5.8,
+        "hash": "1736d5ac"
+      },
+      "stages": [
+        {
+          "progress": 0.08,
+          "brightness": 2.38,
+          "maximum": 176.67,
+          "nonBlackPercent": 5.1,
+          "hash": "cb44f635"
+        },
+        {
+          "progress": 0.45,
+          "brightness": 2.84,
+          "maximum": 188.67,
+          "nonBlackPercent": 5.8,
+          "hash": "eb455ce"
+        },
+        {
+          "progress": 0.8,
+          "brightness": 7.71,
+          "maximum": 188.67,
+          "nonBlackPercent": 11.1,
+          "hash": "b636fb91"
+        }
+      ],
+      "stageMotion": true,
+      "finalBlack": true
+    },
+    {
+      "id": "eclipse",
+      "backend": "canvas2d",
+      "passed": true,
+      "error": null,
+      "pixels": {
+        "brightness": 1.43,
+        "maximum": 223.33,
+        "nonBlackPercent": 5.1,
+        "hash": "e6ba607a"
+      },
+      "stages": [
+        {
+          "progress": 0.08,
+          "brightness": 1.74,
+          "maximum": 223.33,
+          "nonBlackPercent": 5,
+          "hash": "986e6a5b"
+        },
+        {
+          "progress": 0.45,
+          "brightness": 1.43,
+          "maximum": 223.33,
+          "nonBlackPercent": 5.1,
+          "hash": "e6ba607a"
+        },
+        {
+          "progress": 0.8,
+          "brightness": 0.17,
+          "maximum": 97.67,
+          "nonBlackPercent": 0.7,
+          "hash": "696fd1d5"
+        }
+      ],
+      "stageMotion": true,
+      "finalBlack": true
+    },
+    {
+      "id": "nebula",
+      "backend": "canvas2d",
+      "passed": true,
+      "error": null,
+      "pixels": {
+        "brightness": 3.05,
+        "maximum": 95.33,
+        "nonBlackPercent": 7.2,
+        "hash": "3be88af7"
+      },
+      "stages": [
+        {
+          "progress": 0.08,
+          "brightness": 3.05,
+          "maximum": 95.33,
+          "nonBlackPercent": 7.2,
+          "hash": "d57c4026"
+        },
+        {
+          "progress": 0.45,
+          "brightness": 3.05,
+          "maximum": 95.33,
+          "nonBlackPercent": 7.2,
+          "hash": "d0b9793f"
+        },
+        {
+          "progress": 0.8,
+          "brightness": 0.49,
+          "maximum": 70.33,
+          "nonBlackPercent": 1.1,
+          "hash": "db84ddab"
+        }
+      ],
+      "stageMotion": true,
+      "finalBlack": true
+    },
+    {
+      "id": "ripple",
+      "backend": "canvas2d",
+      "passed": true,
+      "error": null,
+      "pixels": {
+        "brightness": 0.98,
+        "maximum": 173.33,
+        "nonBlackPercent": 3.8,
+        "hash": "e1723aa0"
+      },
+      "stages": [
+        {
+          "progress": 0.08,
+          "brightness": 0.98,
+          "maximum": 173.33,
+          "nonBlackPercent": 3.7,
+          "hash": "c2816ef"
+        },
+        {
+          "progress": 0.45,
+          "brightness": 0.99,
+          "maximum": 173.33,
+          "nonBlackPercent": 3.9,
+          "hash": "f8cbd2bb"
+        },
+        {
+          "progress": 0.8,
+          "brightness": 0.48,
+          "maximum": 149.67,
+          "nonBlackPercent": 2.7,
+          "hash": "177b15d4"
+        }
+      ],
+      "stageMotion": true,
+      "finalBlack": true
+    },
+    {
+      "id": "orbit",
+      "backend": "canvas2d",
+      "passed": true,
+      "error": null,
+      "pixels": {
+        "brightness": 2.03,
+        "maximum": 232.33,
+        "nonBlackPercent": 3.2,
+        "hash": "28611e1b"
+      },
+      "stages": [
+        {
+          "progress": 0.08,
+          "brightness": 1.98,
+          "maximum": 230.33,
+          "nonBlackPercent": 3.2,
+          "hash": "a20a0841"
+        },
+        {
+          "progress": 0.45,
+          "brightness": 2.05,
+          "maximum": 232.33,
+          "nonBlackPercent": 3.2,
+          "hash": "4178bc6a"
+        },
+        {
+          "progress": 0.8,
+          "brightness": 0.29,
+          "maximum": 99.33,
+          "nonBlackPercent": 0.8,
+          "hash": "b05106d7"
+        }
+      ],
+      "stageMotion": true,
+      "finalBlack": true
+    },
+    {
+      "id": "ink",
+      "backend": "canvas2d",
+      "passed": true,
+      "error": null,
+      "pixels": {
+        "brightness": 2.01,
+        "maximum": 120,
+        "nonBlackPercent": 4.3,
+        "hash": "78a69539"
+      },
+      "stages": [
+        {
+          "progress": 0.08,
+          "brightness": 2,
+          "maximum": 114.67,
+          "nonBlackPercent": 4.3,
+          "hash": "d74787a7"
+        },
+        {
+          "progress": 0.45,
+          "brightness": 2.01,
+          "maximum": 118.67,
+          "nonBlackPercent": 4.3,
+          "hash": "39285ba1"
+        },
+        {
+          "progress": 0.8,
+          "brightness": 0.27,
+          "maximum": 91.33,
+          "nonBlackPercent": 0.6,
+          "hash": "dce25faa"
+        }
+      ],
+      "stageMotion": true,
+      "finalBlack": true
+    },
+    {
+      "id": "constellation",
+      "backend": "canvas2d",
+      "passed": true,
+      "error": null,
+      "pixels": {
+        "brightness": 0.83,
+        "maximum": 246.67,
+        "nonBlackPercent": 1.5,
+        "hash": "92b29bcf"
+      },
+      "stages": [
+        {
+          "progress": 0.08,
+          "brightness": 0.82,
+          "maximum": 246.67,
+          "nonBlackPercent": 1.5,
+          "hash": "6444266e"
+        },
+        {
+          "progress": 0.45,
+          "brightness": 0.83,
+          "maximum": 246.67,
+          "nonBlackPercent": 1.5,
+          "hash": "87f4e6de"
+        },
+        {
+          "progress": 0.8,
+          "brightness": 0.07,
+          "maximum": 122.33,
+          "nonBlackPercent": 0.3,
+          "hash": "ada6db69"
+        }
+      ],
+      "stageMotion": true,
+      "finalBlack": true
+    }
+  ]
+}
